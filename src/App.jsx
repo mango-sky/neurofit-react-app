@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "./App.css";
 
@@ -53,13 +52,13 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-100 to-white p-6">
+    <div className="min-h-screen bg-gradient-to-b from-purple-200 to-white p-6 flex flex-col items-center">
       <header className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-purple-700">NeuroFit</h1>
-        <p className="text-gray-600">Твой AI-коуч для здоровья и настроения</p>
+        <h1 className="text-5xl font-extrabold text-purple-700 mb-2">NeuroFit</h1>
+        <p className="text-gray-600 text-lg">Твой AI-коуч для здоровья и настроения</p>
       </header>
 
-      <main className="max-w-xl mx-auto bg-white p-6 rounded-2xl shadow-xl">
+      <main className="max-w-xl w-full bg-white p-8 rounded-3xl shadow-2xl">
         <div className="mb-4">
           <input
             type="text"
@@ -67,11 +66,11 @@ function App() {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
             placeholder="Как ты себя чувствуешь?"
-            className="w-full border border-gray-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full border border-gray-300 rounded-xl p-3 focus:outline-none focus:ring-4 focus:ring-purple-400 transition"
           />
           <button
             onClick={handleSend}
-            className="mt-3 w-full bg-purple-600 text-white py-2 rounded-xl hover:bg-purple-700"
+            className="mt-4 w-full bg-purple-600 text-white py-3 rounded-xl hover:bg-purple-700 shadow-md transition duration-300"
           >
             Получить рекомендацию
           </button>
@@ -79,17 +78,17 @@ function App() {
 
         <div className="space-y-4">
           {responses.map((res, index) => (
-            <div key={index} className="border border-gray-200 p-4 rounded-xl bg-gray-50">
+            <div key={index} className="bg-purple-50 p-5 rounded-2xl shadow-inner">
               <p className="text-sm text-gray-500 mb-1">Ты:</p>
               <p className="mb-2">{res.user}</p>
-              <p className="text-sm text-gray-500 mb-1">NeuroFit:</p>
-              <p className="text-purple-700 font-semibold">{res.ai}</p>
+              <p className="text-sm text-purple-700 font-semibold mb-1">NeuroFit:</p>
+              <p>{res.ai}</p>
             </div>
           ))}
         </div>
       </main>
 
-      <footer className="text-center mt-12 text-sm text-gray-400">
+      <footer className="text-center mt-16 text-sm text-gray-400">
         NeuroFit © 2025
       </footer>
     </div>
